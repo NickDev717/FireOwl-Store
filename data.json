@@ -1,0 +1,127 @@
+{
+    "config": {
+        "site": "Fire Owl Collectibles",
+        "versao": "2.0.0",
+        "moeda": "BRL",
+        "atualizado": "2026-01-15"
+    },
+    "produtos": [
+        {
+            "id": 1,
+            "nome": "Hulkbuster XM Studios",
+            "marca": "XM Studios",
+            "franquia": "Marvel",
+            "descricao": "Estátua premium do Hulkbuster em escala 1/4 com detalhes extraordinários, pintura à mão e base temática com LED. Peça de colecionador com certificado de autenticidade.",
+            "preco": 49990.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Hulkbuster",
+            "link": "https://github.com/NickDev717",
+            "estoque": 1,
+            "destaque": true
+        },
+        {
+            "id": 2,
+            "nome": "Iron Man Mark LXXXV",
+            "marca": "Hot Toys",
+            "franquia": "Marvel",
+            "descricao": "Action figure 1/6 scale do Iron Man Mark 85 com sistema LED, múltiplos acessórios e headsculpt ultra realista baseado em Robert Downey Jr.",
+            "preco": 3299.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Iron+Man+Mark+85",
+            "link": "https://github.com/NickDev717",
+            "estoque": 3,
+            "destaque": false
+        },
+        {
+            "id": 3,
+            "nome": "Batman Premium Format",
+            "marca": "Sideshow Collectibles",
+            "franquia": "DC Comics",
+            "descricao": "Estátua Premium Format do Batman em escala 1/4, com traje tático detalhado, capa de tecido real e base temática Gotham City.",
+            "preco": 8999.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Batman",
+            "link": "https://github.com/NickDev717",
+            "estoque": 2,
+            "destaque": true
+        },
+        {
+            "id": 4,
+            "nome": "Darth Vader Life Size",
+            "marca": "Haslab",
+            "franquia": "Star Wars",
+            "descricao": "Busto em tamanho real do Darth Vader com eletrônicos, sons do filme e respiração icônica. Edição limitada numerada.",
+            "preco": 12500.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Darth+Vader",
+            "link": "https://github.com/NickDev717",
+            "estoque": 1,
+            "destaque": true
+        },
+        {
+            "id": 5,
+            "nome": "Spider-Man Miles Morales",
+            "marca": "Insight Editions",
+            "franquia": "Marvel",
+            "descricao": "Estátua 1/10 do Miles Morales em pose dinâmica com efeitos de energia venenosa e base urbana.",
+            "preco": 2899.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Miles+Morales",
+            "link": "https://github.com/NickDev717",
+            "estoque": 5,
+            "destaque": false
+        },
+        {
+            "id": 6,
+            "nome": "Thor Love and Thunder",
+            "marca": "Hot Toys",
+            "franquia": "Marvel",
+            "descricao": "Action figure 1/6 do Thor baseado no filme Love and Thunder, com Mjolnir e Stormbreaker, cabeça escultural de Chris Hemsworth.",
+            "preco": 2599.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Thor",
+            "link": "https://github.com/NickDev717",
+            "estoque": 4,
+            "destaque": false
+        },
+        {
+            "id": 7,
+            "nome": "Joker The Dark Knight",
+            "marca": "Hot Toys",
+            "franquia": "DC Comics",
+            "descricao": "Figura 1/6 do Joker interpretado por Heath Ledger, com múltiplas expressões faciais e acessórios icônicos.",
+            "preco": 3499.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Joker",
+            "link": "https://github.com/NickDev717",
+            "estoque": 2,
+            "destaque": true
+        },
+        {
+            "id": 8,
+            "nome": "Goku Ultra Instinct",
+            "marca": "Prime 1 Studio",
+            "franquia": "Dragon Ball",
+            "descricao": "Estátua 1/4 do Goku em Ultra Instinct com efeitos de aura, pintura detalhada e base com efeitos de energia.",
+            "preco": 7899.00,
+            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Goku+UI",
+            "link": "https://github.com/NickDev717",
+            "estoque": 1,
+            "destaque": true
+        }
+    ],
+    "musicas": [
+        {
+            "titulo": "Harmony of Tribes",
+            "artista": "Groovix Records",
+            "arquivo": "musics/Groovix Records - Harmony of Tribes.mp3"
+        },
+        {
+            "titulo": "Blow With The Hoe (Slowed - Reverb)",
+            "artista": "Falxce",
+            "arquivo": "musics/Falxce - Blow With The Hoe (Slowed - Reverb).mp3"
+        },
+        {
+            "titulo": "Heroic Orchestral",
+            "artista": "Epic Music",
+            "arquivo": "musicas/track03.mp3"
+        }
+    ],
+    "metricas": {
+        "calcularAutomaticamente": true,
+        "descricao": "As métricas são calculadas automaticamente baseadas nos produtos"
+    }
+}

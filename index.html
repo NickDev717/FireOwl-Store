@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image/png" href="images/Logos/FireOwl Logo transp.png" sizes="32x32">
+    <title>Fire Owl Collectibles | Action Figures Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="translations.js"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Navegação principal">
+        <a href="#" class="nav-brand">
+            <img src="images/Logos/FireOwl Logo transp.png" alt="Fire Owl Collectibles" class="brand-logo" style="height:45px; width:auto;">
+            <span>FIRE OWL COLLECTIBLES</span>
+        </a>
+        <div class="nav-links">
+            <a href="#catalogo" class="nav-link" data-i18n="navbar.catalogo">Catálogo</a>
+            <a href="#sobre" class="nav-link" data-i18n="navbar.sobre">Sobre</a>
+            <a href="#contato" class="nav-link nav-github" data-i18n="navbar.contato">Contato</a>
+        </div>
+        <div class="language-selector" id="languageSelector">
+            <button class="lang-toggle" id="langToggle" aria-label="Selecionar idioma" title="Selecionar idioma">
+                <span class="lang-icon">🌐</span>
+                <span class="lang-label" id="langLabel">PT</span>
+            </button>
+            <div class="lang-menu" id="langMenu" hidden>
+                <button class="lang-option" data-lang="pt-BR" id="langPT">
+                    <span class="lang-flag">🇧🇷</span>
+                    <span class="lang-name" data-i18n="idiomas.pt">Português</span>
+                </button>
+                <button class="lang-option" data-lang="en-US" id="langEN">
+                    <span class="lang-flag">🇺🇸</span>
+                    <span class="lang-name" data-i18n="idiomas.en">English</span>
+                </button>
+                <button class="lang-option" data-lang="es-ES" id="langES">
+                    <span class="lang-flag">🇪🇸</span>
+                    <span class="lang-name" data-i18n="idiomas.es">Español</span>
+                </button>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Menu mobile" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero" role="banner">
+        <div class="hero-bg" aria-hidden="true"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text" data-i18n="hero.titulo">Colecionáveis de Elite</span>
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitulo">
+                Action figures premium das maiores franquias do entretenimento. 
+                Qualidade excepcional para colecionadores exigentes.
+            </p>
+            <div class="search-container">
+                <input 
+                    type="text" 
+                    id="busca-input" 
+                    class="search-input" 
+                    placeholder="Buscar action figures, marcas, franquias..."
+                    data-i18n-placeholder="hero.placeholder_busca"
+                    aria-label="Buscar produtos"
+                    autocomplete="off"
+                >
+                <button class="btn-search" id="btnBuscar" aria-label="Buscar" data-i18n="hero.btn_buscar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <span>Buscar</span>
+                </button>
+            </div>
+
+            <!-- Slider de Produtos -->
+            <div class="slider-section" aria-label="Destaques em slider">
+                <div class="slider-container">
+                    <div class="slider-track" id="sliderTrack">
+                        <!-- Slides serão inseridos via JS -->
+                    </div>
+                    <button class="slider-btn slider-prev" id="sliderPrev" aria-label="Anterior">❮</button>
+                    <button class="slider-btn slider-next" id="sliderNext" aria-label="Próximo">❯</button>
+                    <div class="slider-dots" id="sliderDots"></div>
+                </div>
+            </div>
+
+            <!-- Estatísticas -->
+            <div class="hero-stats" id="heroStats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalProdutos">0</span>
+                    <span class="stat-label" data-i18n="hero.stat_produtos">Produtos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalMarcas">0</span>
+                    <span class="stat-label" data-i18n="hero.stat_marcas">Marcas</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalFranquias">0</span>
+                    <span class="stat-label" data-i18n="hero.stat_franquias">Franquias</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Filtros (centralizados) -->
+    <section class="filters-section" aria-label="Filtros de produtos">
+        <div class="filters-container">
+            <select id="filtroMarca" class="filter-select" aria-label="Filtrar por marca" data-i18n-option="filtros.todas_marcas">
+                <option value="">Todas as Marcas</option>
+            </select>
+            <select id="filtroFranquia" class="filter-select" aria-label="Filtrar por franquia" data-i18n-option="filtros.todas_franquias">
+                <option value="">Todas as Franquias</option>
+            </select>
+            <select id="filtroFaixaPreco" class="filter-select" aria-label="Filtrar por faixa de preço" data-i18n-option="filtros.todas_faixas">
+                <option value="">Todas as Faixas de Preço</option>
+                <option value="0-1000" data-i18n="filtros.faixa_1">Até R$ 1.000</option>
+                <option value="1000-5000" data-i18n="filtros.faixa_2">R$ 1.000 - R$ 5.000</option>
+                <option value="5000-10000" data-i18n="filtros.faixa_3">R$ 5.000 - R$ 10.000</option>
+                <option value="10000+" data-i18n="filtros.faixa_4">Acima de R$ 10.000</option>
+            </select>
+        </div>
+    </section>
+
+    <!-- Catálogo -->
+    <main class="catalog-section" id="catalogo" role="main">
+        <h2 class="section-title">
+            <span class="title-icon">🦅</span>
+            <span data-i18n="catalogo.titulo">Catálogo Premium</span>
+            <span class="title-icon">🦅</span>
+        </h2>
+
+        <div class="catalog-tabs">
+            <button class="catalog-tab active" data-tipo="base" id="tabBase" data-i18n="catalogo.tab_base">Catálogo Base</button>
+            <button class="catalog-tab" data-tipo="premium" id="tabPremium" data-i18n="catalogo.tab_premium">Catálogo Premium</button>
+        </div>
+
+        <div class="cards-grid" id="cardContainer" aria-live="polite">
+            <!-- Cards serão inseridos via JavaScript -->
+        </div>
+        <div class="loading-state" id="loadingState" hidden>
+            <div class="loader"></div>
+            <p data-i18n="catalogo.carregando">Carregando colecionáveis...</p>
+        </div>
+        <div class="no-results" id="noResults" hidden>
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.35-4.35"></path>
+            </svg>
+            <p data-i18n="catalogo.sem_resultados">Nenhum produto encontrado</p>
+            <p class="no-results-hint" data-i18n="catalogo.dica_filtros">Tente ajustar os filtros ou termos de busca</p>
+        </div>
+    </main>
+
+    <!-- Sobre -->
+    <section class="about-section" id="sobre" aria-labelledby="sobre-title">
+        <div class="about-container">
+            <h2 id="sobre-title" class="section-title" data-i18n="sobre.titulo">Sobre a Fire Owl</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p data-i18n="sobre.descricao1">
+                        A <strong>Fire Owl Collectibles</strong> é especializada em action figures e 
+                        estatuetas premium das maiores franquias do entretenimento mundial.
+                    </p>
+                    <p data-i18n="sobre.descricao2">
+                        Trabalhamos apenas com as melhores marcas do mercado como XM Studios, 
+                        Prime 1 Studio, Iron Studios e muitas outras, garantindo qualidade 
+                        excepcional e autenticidade em cada peça.
+                    </p>
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="sobre.feat_originais">Produtos 100% originais</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="sobre.feat_envio">Envio seguro para todo Brasil</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span data-i18n="sobre.feat_atendimento">Atendimento especializado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-seal">
+                    <img src="images/Logos/FireOwl selo transp.png" alt="Selo de confiança Fire Owl" class="seal-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="seal-placeholder" style="display:none; flex-direction:column; align-items:center; justify-content:center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contato" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="images/Logos/FireOwl Logo transp.png" alt="Fire Owl Collectibles" class="footer-logo" style="height:40px; width:auto;">
+                <span>Fire Owl Collectibles</span>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/nickolas-oliveira-bonavita-magalhães-092a06189/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                <a href="mailto:contato@fireowlcollectibles.com">Email</a>
+            </div>
+            <p class="footer-copy" data-i18n="footer.direitos">
+                &copy; 2024-2026 Fire Owl Collectibles. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Mini Player de Música -->
+    <div class="mini-player" id="miniPlayer">
+        <button class="mini-player-toggle" id="mpToggle" aria-label="Abrir player de música" data-i18n-aria="player.label_player">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/>
+            </svg>
+        </button>
+        <div class="mini-player-content" id="mpContent" hidden>
+            <!-- Botão de fechar -->
+            <button class="mp-close" id="mpClose" aria-label="Fechar player" data-i18n-aria="player.fechar">✕</button>
+            <div class="mp-track-info">
+                <div class="mp-artwork" aria-hidden="true">🎵</div>
+                <div class="mp-track-text">
+                    <div class="mp-track-title" id="mpTitle" data-i18n="player.nenhuma_musica">Nenhuma música</div>
+                    <div class="mp-track-artist" id="mpArtist">—</div>
+                </div>
+            </div>
+            <div class="mp-controls">
+                <button class="mp-btn" id="mpPrev" aria-label="Música anterior" data-i18n-aria="player.label_anterior">⏮</button>
+                <button class="mp-btn mp-play-btn" id="mpPlay" aria-label="Tocar/Pausar" data-i18n-aria="player.label_tocar">▶</button>
+                <button class="mp-btn" id="mpNext" aria-label="Próxima música" data-i18n-aria="player.label_proxima">⏭</button>
+            </div>
+            <div class="mp-progress-container">
+                <span class="mp-time" id="mpCurrent">0:00</span>
+                <input type="range" class="mp-slider" id="mpProgress" min="0" max="100" value="0" aria-label="Progresso da música" data-i18n-aria="player.label_progresso">
+                <span class="mp-time" id="mpDuration">0:00</span>
+            </div>
+            <div class="mp-volume">
+                <span>🔊</span>
+                <input type="range" class="mp-slider mp-volume-slider" id="mpVolume" min="0" max="1" step="0.1" value="0.3" aria-label="Volume" data-i18n-aria="player.label_volume">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Visualização do Produto -->
+    <div class="modal-overlay" id="modalVisualizar" hidden>
+        <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <button class="modal-close" id="modalClose" aria-label="Fechar visualização" data-i18n-aria="modal.label_fechar">×</button>
+            <div class="modal-body" id="modalBody">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hub de Pedidos -->
+    <div class="order-hub" id="orderHub">
+        <button class="order-toggle" id="orderToggle" aria-label="Abrir pedidos" data-i18n-aria="pedidos.label_abrir" aria-expanded="false">
+            <span>🛒</span>
+            <span class="order-badge" id="orderBadge" hidden>0</span>
+        </button>
+        <div class="order-content" id="orderContent" hidden>
+            <div class="order-header">
+                <h3 data-i18n="pedidos.titulo">🛒 Fazer Pedido</h3>
+                <button class="order-close" id="orderClose" aria-label="Fechar" data-i18n-aria="pedidos.label_fechar">×</button>
+            </div>
+            <div class="order-messages" id="orderMessages" role="log" aria-live="polite">
+                <div class="order-empty">
+                    <p data-i18n="pedidos.nenhum_pedido">Nenhum pedido ainda.</p>
+                    <p class="order-hint" data-i18n="pedidos.dica_pedido">Faça seu pedido agora!</p>
+                </div>
+            </div>
+            <form class="order-form" id="orderForm" novalidate>
+                <div class="form-group">
+                    <select id="pedProduto" class="form-input" required aria-required="true" data-i18n-option="pedidos.select_produto">
+                        <option value="">Selecione o produto *</option>
+                    </select>
+                    <span class="error-msg" id="errProduto"></span>
+                </div>
+                <div class="form-group">
+                    <input type="number" id="pedQuantidade" class="form-input" placeholder="Quantidade *" data-i18n-placeholder="pedidos.placeholder_quantidade" min="1" value="1" required aria-required="true">
+                    <span class="error-msg" id="errQuantidade"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" id="pedNome" class="form-input" placeholder="Seu nome *" data-i18n-placeholder="pedidos.placeholder_nome" required aria-required="true">
+                    <span class="error-msg" id="errNomePed"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="pedEmail" class="form-input" placeholder="Seu email *" data-i18n-placeholder="pedidos.placeholder_email" required aria-required="true">
+                    <span class="error-msg" id="errEmailPed"></span>
+                </div>
+                <div class="form-group">
+                    <textarea id="pedMensagem" class="form-input" rows="3" placeholder="Mensagem (opcional)" data-i18n-placeholder="pedidos.placeholder_mensagem"></textarea>
+                </div>
+                <button type="submit" class="order-submit" id="orderSubmit" data-i18n="pedidos.btn_fazer_pedido">
+                    Fazer Pedido
+                </button>
+                <div class="form-status" id="orderStatus" role="status" aria-live="polite"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html>
