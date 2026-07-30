@@ -13,7 +13,6 @@
 function updatePageLanguage() {
     const currentLang = i18nManager.getCurrentLang();
     
-    // Atualizar atributos data-i18n
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         const text = i18nManager.t(key);
@@ -22,7 +21,6 @@ function updatePageLanguage() {
         }
     });
     
-    // Atualizar placeholders
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
         const key = el.dataset.i18nPlaceholder;
         const text = i18nManager.t(key);
@@ -31,7 +29,6 @@ function updatePageLanguage() {
         }
     });
     
-    // Atualizar aria-labels
     document.querySelectorAll('[data-i18n-aria]').forEach(el => {
         const key = el.dataset.i18nAria;
         const text = i18nManager.t(key);
@@ -40,7 +37,6 @@ function updatePageLanguage() {
         }
     });
     
-    // Atualizar opções de select com data-i18n-option
     document.querySelectorAll('[data-i18n-option]').forEach(select => {
         const key = select.dataset.i18nOption;
         const text = i18nManager.t(key);
@@ -49,7 +45,6 @@ function updatePageLanguage() {
         }
     });
     
-    // Atualizar opções específicas do select
     document.querySelectorAll('option[data-i18n]').forEach(option => {
         const key = option.dataset.i18n;
         const text = i18nManager.t(key);
@@ -58,7 +53,6 @@ function updatePageLanguage() {
         }
     });
     
-    // Atualizar label de idioma na navbar
     const langLabels = {
         'pt-BR': 'PT',
         'en-US': 'EN',
@@ -69,7 +63,6 @@ function updatePageLanguage() {
         langLabel.textContent = langLabels[currentLang] || 'PT';
     }
     
-    // Atualizar botão ativo no menu de idiomas
     document.querySelectorAll('.lang-option').forEach(btn => {
         if (btn.dataset.lang === currentLang) {
             btn.classList.add('active');
@@ -86,36 +79,29 @@ function initLanguageSelector() {
     
     if (!langToggle || !langMenu) return;
     
-    // Toggle menu
     langToggle.addEventListener('click', () => {
         const isHidden = langMenu.hidden;
         langMenu.hidden = !isHidden;
     });
     
-    // Fechar menu ao clicar fora
     document.addEventListener('click', (e) => {
         if (!e.target.closest('.language-selector')) {
             langMenu.hidden = true;
         }
     });
     
-    // Mudar idioma
     langOptions.forEach(btn => {
         btn.addEventListener('click', () => {
             const lang = btn.dataset.lang;
             i18nManager.setLanguage(lang);
             updatePageLanguage();
-            
-            // Recarregar dados com novo idioma
             if (state.produtos.length > 0) {
                 renderizarCards();
             }
-            
             langMenu.hidden = true;
         });
     });
     
-    // Inicializar página com idioma salvo
     updatePageLanguage();
 }
 
@@ -213,7 +199,9 @@ const elements = {
     orderSubmit: document.getElementById('orderSubmit'),
     orderStatus: document.getElementById('orderStatus'),
     tabBase: document.getElementById('tabBase'),
-    tabPremium: document.getElementById('tabPremium')
+    tabPremium: document.getElementById('tabPremium'),
+    filterToggle: document.getElementById('filterToggle'),
+    filterDropdown: document.getElementById('filterDropdown')
 };
 
 // ============================================
@@ -894,6 +882,14 @@ function setupEventListeners() {
     if (elements.tabBase) elements.tabBase.addEventListener('click', () => alternarCatalogo('base'));
     if (elements.tabPremium) elements.tabPremium.addEventListener('click', () => alternarCatalogo('premium'));
     
+    // Toggle do botão Filtros
+    if (elements.filterToggle && elements.filterDropdown) {
+        elements.filterToggle.addEventListener('click', () => {
+            const isOpen = elements.filterDropdown.classList.toggle('open');
+            elements.filterToggle.setAttribute('aria-expanded', isOpen);
+        });
+    }
+    
     // Audio events
     audio.addEventListener('timeupdate', () => {
         if (audio.duration && elements.mpProgress) {
@@ -981,7 +977,6 @@ if (document.readyState === 'loading') {
     init();
 }
 
-// Exportar funções para uso global
 window.abrirPedido = abrirPedido;
 window.abrirVisualizacao = abrirVisualizacao;
 window.fecharModalVisualizacao = fecharModalVisualizacao;

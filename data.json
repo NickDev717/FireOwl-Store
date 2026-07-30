@@ -8,99 +8,75 @@
     "produtos": [
         {
             "id": 1,
-            "nome": "Hulkbuster XM Studios",
+            "nome": "Hulkbuster - Iron Man Mark XLIV",
             "marca": "XM Studios",
             "franquia": "Marvel",
-            "descricao": "Estátua premium do Hulkbuster em escala 1/4 com detalhes extraordinários, pintura à mão e base temática com LED. Peça de colecionador com certificado de autenticidade.",
+            "descricao": "Estátua premium do Hulkbuster - Iron Man Mark XLIV em escala 1/4 com detalhes extraordinários, pintura à mão e base temática com LED. Peça de colecionador com certificado de autenticidade.",
             "preco": 49990.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Hulkbuster",
+            "imagem": "images/cards/Hulkbuster XM Studios.png",
             "link": "https://github.com/NickDev717",
             "estoque": 1,
             "destaque": true
         },
         {
             "id": 2,
-            "nome": "Iron Man Mark LXXXV",
-            "marca": "Hot Toys",
+            "nome": "SheHulk Classic Custom 1/4",
+            "marca": "Storage China",
             "franquia": "Marvel",
-            "descricao": "Action figure 1/6 scale do Iron Man Mark 85 com sistema LED, múltiplos acessórios e headsculpt ultra realista baseado em Robert Downey Jr.",
-            "preco": 3299.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Iron+Man+Mark+85",
+            "descricao": "Action figure da SheHulk em escala 1/4 com detalhes excepcionais e base temática.",
+            "preco": 14890.00,
+            "imagem": "images/cards/She-Hulk Classic Custom1-4.png",
             "link": "https://github.com/NickDev717",
-            "estoque": 3,
-            "destaque": false
+            "estoque": 1,
+            "destaque": true
         },
         {
             "id": 3,
-            "nome": "Batman Premium Format",
+            "nome": "Green Lantern - John Stewart - Exclusive - Sideshow Repainted",
             "marca": "Sideshow Collectibles",
             "franquia": "DC Comics",
-            "descricao": "Estátua Premium Format do Batman em escala 1/4, com traje tático detalhado, capa de tecido real e base temática Gotham City.",
-            "preco": 8999.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Batman",
+            "descricao": "Estátua Premium Format do Green Lantern - John Stewart em escala 1/4, com traje tático detalhado, capa de tecido real e base temática Gotham City.",
+            "preco": 4999.00,
+            "imagem": "images/cards/Green Lantern - John Stewart - Exclusive - Sideshow Repainted - Chawki.png",
             "link": "https://github.com/NickDev717",
-            "estoque": 2,
+            "estoque": 1,
             "destaque": true
         },
         {
             "id": 4,
-            "nome": "Darth Vader Life Size",
-            "marca": "Haslab",
-            "franquia": "Star Wars",
-            "descricao": "Busto em tamanho real do Darth Vader com eletrônicos, sons do filme e respiração icônica. Edição limitada numerada.",
-            "preco": 12500.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Darth+Vader",
+            "nome": "She-Hulk Custom 1/4",
+            "marca": "Storage China",
+            "franquia": "Marvel",
+            "descricao": "Action figure da She-Hulk em escala 1/4 com detalhes excepcionais e base temática.",
+            "preco": 15790.00,
+            "imagem": "images/cards/She-Hulk Custom1-4.png",
             "link": "https://github.com/NickDev717",
             "estoque": 1,
             "destaque": true
         },
         {
             "id": 5,
-            "nome": "Spider-Man Miles Morales",
-            "marca": "Insight Editions",
-            "franquia": "Marvel",
-            "descricao": "Estátua 1/10 do Miles Morales em pose dinâmica com efeitos de energia venenosa e base urbana.",
-            "preco": 2899.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Miles+Morales",
+            "nome": "Superman Black Suit",
+            "marca": "Iron Studios",
+            "franquia": "DC Comics",
+            "descricao": "Estátua 1/10 do Superman em pose dinâmica com efeitos de voo, pintura detalhada e base temática. Peça de colecionador com certificado de autenticidade.",
+            "preco": 0.00,
+            "imagem": "images/cards/Superman Black Suit - Iron Studios 1-10.png",
             "link": "https://github.com/NickDev717",
-            "estoque": 5,
+            "estoque": 1,
             "destaque": false
         },
         {
             "id": 6,
-            "nome": "Thor Love and Thunder",
-            "marca": "Hot Toys",
-            "franquia": "Marvel",
-            "descricao": "Action figure 1/6 do Thor baseado no filme Love and Thunder, com Mjolnir e Stormbreaker, cabeça escultural de Chris Hemsworth.",
-            "preco": 2599.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Thor",
-            "link": "https://github.com/NickDev717",
-            "estoque": 4,
-            "destaque": false
-        },
-        {
-            "id": 7,
-            "nome": "Joker The Dark Knight",
-            "marca": "Hot Toys",
+            "nome": "Wonder Woman and Young Diana",
+            "marca": "Iron Studios",
             "franquia": "DC Comics",
-            "descricao": "Figura 1/6 do Joker interpretado por Heath Ledger, com múltiplas expressões faciais e acessórios icônicos.",
-            "preco": 3499.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Joker",
-            "link": "https://github.com/NickDev717",
-            "estoque": 2,
-            "destaque": true
-        },
-        {
-            "id": 8,
-            "nome": "Goku Ultra Instinct",
-            "marca": "Prime 1 Studio",
-            "franquia": "Dragon Ball",
-            "descricao": "Estátua 1/4 do Goku em Ultra Instinct com efeitos de aura, pintura detalhada e base com efeitos de energia.",
-            "preco": 7899.00,
-            "imagem": "https://via.placeholder.com/400x500/1a1a1a/D4AF37?text=Goku+UI",
+            "descricao": "Action figure 1/10 da Wonder Woman e Young Diana, com detalhes excepcionais e base temática.",
+            "preco": 0.00,
+            "imagem": "images/cards/Wonder Woman and Young Diana - Iron Studios 1-10.png",
             "link": "https://github.com/NickDev717",
             "estoque": 1,
-            "destaque": true
+            "destaque": false
         }
     ],
     "musicas": [
@@ -110,14 +86,14 @@
             "arquivo": "musics/Groovix Records - Harmony of Tribes.mp3"
         },
         {
-            "titulo": "Blow With The Hoe (Slowed - Reverb)",
-            "artista": "Falxce",
-            "arquivo": "musics/Falxce - Blow With The Hoe (Slowed - Reverb).mp3"
+            "titulo": "Wanderlust",
+            "artista": "AK",
+            "arquivo": "musics/AK - Wanderlust.mp3"
         },
         {
-            "titulo": "Heroic Orchestral",
-            "artista": "Epic Music",
-            "arquivo": "musicas/track03.mp3"
+            "titulo": "Charge",
+            "artista": "Mark Streitenfeld",
+            "arquivo": "musics/Mark Streitenfeld - Charge.mp3"
         }
     ],
     "metricas": {

@@ -111,9 +111,28 @@
         </div>
     </header>
 
-    <!-- Filtros (centralizados) -->
-    <section class="filters-section" aria-label="Filtros de produtos">
-        <div class="filters-container">
+    <!-- Catálogo -->
+    <main class="catalog-section" id="catalogo" role="main">
+        <h2 class="section-title">
+            <span class="title-icon">🦅</span>
+            <span data-i18n="catalogo.titulo">Catálogo Premium</span>
+            <span class="title-icon">🦅</span>
+        </h2>
+
+        <!-- Cabeçalho do catálogo: abas + botão Filtros -->
+        <div class="catalog-header">
+            <div class="catalog-tabs">
+                <button class="catalog-tab active" data-tipo="base" id="tabBase" data-i18n="catalogo.tab_base">Catálogo Base</button>
+                <button class="catalog-tab" data-tipo="premium" id="tabPremium" data-i18n="catalogo.tab_premium">Catálogo Premium</button>
+            </div>
+            <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="filterDropdown">
+                <span class="filter-toggle-text">Filtros</span>
+                <span class="filter-arrow">▼</span>
+            </button>
+        </div>
+
+        <!-- Container dos filtros (submenu) -->
+        <div class="filters-container" id="filterDropdown">
             <select id="filtroMarca" class="filter-select" aria-label="Filtrar por marca" data-i18n-option="filtros.todas_marcas">
                 <option value="">Todas as Marcas</option>
             </select>
@@ -127,20 +146,6 @@
                 <option value="5000-10000" data-i18n="filtros.faixa_3">R$ 5.000 - R$ 10.000</option>
                 <option value="10000+" data-i18n="filtros.faixa_4">Acima de R$ 10.000</option>
             </select>
-        </div>
-    </section>
-
-    <!-- Catálogo -->
-    <main class="catalog-section" id="catalogo" role="main">
-        <h2 class="section-title">
-            <span class="title-icon">🦅</span>
-            <span data-i18n="catalogo.titulo">Catálogo Premium</span>
-            <span class="title-icon">🦅</span>
-        </h2>
-
-        <div class="catalog-tabs">
-            <button class="catalog-tab active" data-tipo="base" id="tabBase" data-i18n="catalogo.tab_base">Catálogo Base</button>
-            <button class="catalog-tab" data-tipo="premium" id="tabPremium" data-i18n="catalogo.tab_premium">Catálogo Premium</button>
         </div>
 
         <div class="cards-grid" id="cardContainer" aria-live="polite">
@@ -224,7 +229,6 @@
             </svg>
         </button>
         <div class="mini-player-content" id="mpContent" hidden>
-            <!-- Botão de fechar -->
             <button class="mp-close" id="mpClose" aria-label="Fechar player" data-i18n-aria="player.fechar">✕</button>
             <div class="mp-track-info">
                 <div class="mp-artwork" aria-hidden="true">🎵</div>

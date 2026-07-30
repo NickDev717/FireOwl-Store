@@ -615,54 +615,7 @@ body {
 }
 
 /* ============================================
-   FILTERS
-   ============================================ */
-.filters-section {
-    padding: var(--spacing-lg) 5%;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-light);
-    position: sticky;
-    top: 80px;
-    z-index: 100;
-    backdrop-filter: blur(10px);
-}
-
-.filters-container {
-    max-width: 900px;
-    margin: 0 auto;
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.filter-select {
-    flex: 1 1 200px;
-    max-width: 280px;
-    padding: var(--spacing-sm) var(--spacing-md);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-color);
-    background: var(--bg-card);
-    color: var(--text-primary);
-    font-family: inherit;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: var(--transition-fast);
-}
-
-.filter-select:focus {
-    outline: none;
-    border-color: var(--gold-primary);
-    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-}
-
-.filter-select option {
-    background: var(--bg-card);
-    color: var(--text-primary);
-}
-
-/* ============================================
-   CATALOG
+   CATALOG SECTION
    ============================================ */
 .catalog-section {
     padding: var(--spacing-xl) 5%;
@@ -698,11 +651,19 @@ body {
     }
 }
 
-.catalog-tabs {
+/* Cabeçalho do catálogo: abas + botão Filtros */
+.catalog-header {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: var(--spacing-md);
     margin-bottom: var(--spacing-xl);
+}
+
+.catalog-tabs {
+    display: flex;
+    gap: var(--spacing-md);
     flex-wrap: wrap;
 }
 
@@ -736,6 +697,94 @@ body {
     box-shadow: var(--shadow-gold-hover);
 }
 
+/* Botão Filtros ao lado das abas */
+.filter-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    background: var(--gradient-gold-subtle);
+    white-space: nowrap;
+}
+
+.filter-toggle:hover {
+    border-color: var(--gold-primary);
+    color: var(--gold-light);
+    background: rgba(212, 175, 55, 0.15);
+}
+
+.filter-toggle-text {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.filter-arrow {
+    transition: transform var(--transition-base);
+    font-size: 0.7rem;
+}
+
+.filter-toggle[aria-expanded="true"] .filter-arrow {
+    transform: rotate(180deg);
+}
+
+/* Container dos filtros (dropdown) */
+.filters-container {
+    max-width: 900px;
+    margin: 0 auto var(--spacing-xl);
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+    justify-content: center;
+    padding: var(--spacing-md);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+}
+
+.filters-container.open {
+    display: flex;
+}
+
+.filter-select {
+    flex: 1 1 200px;
+    max-width: 280px;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: var(--gold-primary);
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+.filter-select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+/* ============================================
+   CARDS GRID
+   ============================================ */
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -1331,7 +1380,7 @@ body {
 }
 
 /* ============================================
-   ORDER HUB (CORRIGIDO)
+   ORDER HUB
    ============================================ */
 .order-hub {
     position: fixed;
@@ -1789,23 +1838,32 @@ body {
         font-size: 1.5rem;
     }
 
-    /* Filtros - ajuste para mobile (menores) */
-    .filters-section {
-        padding: 0.4rem 4%;
-        top: 72px;
+    /* Catalog header em mobile: abas e botão Filtros empilhados */
+    .catalog-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--spacing-sm);
     }
+    .catalog-tabs {
+        justify-content: center;
+    }
+    .filter-toggle {
+        justify-content: center;
+        width: 100%;
+        padding: var(--spacing-sm);
+    }
+
     .filters-container {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.3rem;
+        gap: 0.5rem;
+        padding: var(--spacing-sm);
     }
     .filter-select {
         max-width: 100%;
         width: 100%;
-        padding: 0.35rem 0.6rem;
-        font-size: 0.8rem;
-        min-height: 34px;
-        border-radius: var(--radius-sm);
+        padding: 0.5rem;
+        font-size: 0.9rem;
     }
 
     .cards-grid {
@@ -1914,17 +1972,6 @@ body {
         width: 140px;
         height: 140px;
         font-size: 0.9rem;
-    }
-
-    /* Filtros ainda menores para telas muito pequenas */
-    .filters-section {
-        padding: 0.3rem 3%;
-        top: 68px;
-    }
-    .filter-select {
-        padding: 0.25rem 0.5rem;
-        font-size: 0.7rem;
-        min-height: 30px;
     }
 }
 
